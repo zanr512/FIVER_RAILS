@@ -39,3 +39,4 @@
 // After you done, please remember to add the content_for to specify the feature
 // you want to add in your view. For example, if i want to add the feature1 and
 // feature2, it will be <% content_for :features, "feature1 feature2" %>
+

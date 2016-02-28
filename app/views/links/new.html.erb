@@ -1,5 +1,98 @@
-<h1>New Link</h1>
 
-<%= render 'form' %>
+	<% content_for :features, "navbar-transparent" %>
+	<div id="navbar-full">
+	   <div id="navbar">
+	   <!--
+	       navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
+	       -->
+	       <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+	         <div class="alert alert-success hidden">
+	           <div class="container">
+	               <b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+	           </div>
+	         </div>
+	
+	         <div class="container">
+	           <!-- Brand and toggle get grouped for better mobile display -->
+	           <div class="navbar-header">
+	             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	               <span class="sr-only">Toggle navigation</span>
+	               <span class="icon-bar"></span>
+	               <span class="icon-bar"></span>
+	               <span class="icon-bar"></span>
+	             </button>
+	             <a class="navbar-brand" href="#">FLM</a>
+	           </div>
+	
+	           <!-- Collect the nav links, forms, and other content for toggling -->
+	           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	             <ul class="nav navbar-nav">
+	               <li><%= link_to 'HOME', welcome_index_path %></li></li>
+	               <li><%= link_to 'JOBS', links_path %></li>
+	               <% if user_signed_in? %>
+	               <li class="active"><%= link_to 'SUBMIT JOB', new_link_path %></li>
+	               <% end %>
+	             </ul>
+	            
+	             <ul class="nav navbar-nav navbar-right">
+	                  <% if !user_signed_in? %>
+	                   <li><%= link_to 'Register', new_user_registration_path %></li>
+	                   <li><%= link_to 'Sign in', new_user_session_path %></li>
+	                  <% else %>
+	                  <li class="dropdown">
+	                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= current_user.email %> <b class="caret"></b></a>
+	                     <ul class="dropdown-menu">
+	                       <li><%= link_to 'Account', edit_user_registration_path %></li>
+	                       <li class="divider"></li>
+	                       <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+	                     </ul>
+	                     <% end %>
+	               </li>
+	              </ul>
+	              
+	
+	           </div><!-- /.navbar-collapse -->
+	         </div><!-- /.container-fluid -->
+	       </nav>
+	    <div class="blurred-container">
+	           <div class="img-src" style="background-image: url('<%= asset_path("gsdk/bg.jpg") %>')"></div>
+	       </div>
+	   </div><!--  end navbar -->
+	
+	</div> <!-- end menu-dropdown -->
+	
+	<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert alert-warning") %>
+		<% end %>
+		
+	<div class="main">
+	   <div class="container tim-container" style="max-width:800px; padding-top:100px">
+	     <h1><center>CREATE NEW JOB</center></h1>
+	     <%= form_for(@link) do |f| %>
+                            <div class="media-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <%= f.text_field :title, class: "form-control", placeholder: "Job Title", required: true %>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                 <%= f.number_field :price, class: "form-control", placeholder: "Price In €", required: true %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <%= f.text_area :description, class: "form-control", placeholder: "Describe What Are You Offering...", rows: "6", required: true %>
+                                    <div class="media-footer">
+                                        <h6></h6>
+                                        <%= f.submit 'Submit Job', class: "btn btn-info btn-fill pull-right" %>            
+                                    </div>
+                              </div>
+		   <% end %>
+		 </div>
+	   </div>
+	   <div class="space"></div>
+	<!-- end container -->
+	</div>
+	<!-- end main -->
 
-<%= link_to 'Back', links_path %>
