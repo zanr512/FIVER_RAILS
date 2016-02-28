@@ -1,0 +1,80 @@
+
+	<% content_for :features, "navbar-transparent" %>
+	<div id="navbar-full">
+	   <div id="navbar">
+	   <!--
+	       navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
+	       -->
+	       <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+	         <div class="alert alert-success hidden">
+	           <div class="container">
+	               <b>Lorem ipsum</b> dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+	           </div>
+	         </div>
+	
+	         <div class="container">
+	           <!-- Brand and toggle get grouped for better mobile display -->
+	           <div class="navbar-header">
+	             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	               <span class="sr-only">Toggle navigation</span>
+	               <span class="icon-bar"></span>
+	               <span class="icon-bar"></span>
+	               <span class="icon-bar"></span>
+	             </button>
+	             <a class="navbar-brand" href="#">FLM</a>
+	           </div>
+	
+	           <!-- Collect the nav links, forms, and other content for toggling -->
+	           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	             <ul class="nav navbar-nav">
+	               <li class="active"><%= link_to 'HOME', welcome_index_path %></li></li>
+	               <li><%= link_to 'JOBS', links_path %></li>
+	               <% if user_signed_in? %>
+	               <li><%= link_to 'SUBMIT JOB', new_link_path %></li>
+	               <% end %>
+	             </ul>
+	            
+	             <ul class="nav navbar-nav navbar-right">
+	                  <% if !user_signed_in? %>
+	                   <li><%= link_to 'Register', new_user_registration_path %></li>
+	                   <li><%= link_to 'Sign in', new_user_session_path %></li>
+	                  <% else %>
+	                  <li class="dropdown">
+	                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= current_user.email %> <b class="caret"></b></a>
+	                     <ul class="dropdown-menu">
+	                       <li><%= link_to 'Account', edit_user_registration_path %></li>
+	                       <li class="divider"></li>
+	                       <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+	                     </ul>
+	                     <% end %>
+	               </li>
+	              </ul>
+	              
+	
+	           </div><!-- /.navbar-collapse -->
+	         </div><!-- /.container-fluid -->
+	       </nav>
+	    <div class="blurred-container">
+	           <div class="img-src" style="background-image: url('<%= asset_path("gsdk/bg.jpg") %>')"></div>
+	       </div>
+	   </div><!--  end navbar -->
+	
+	</div> <!-- end menu-dropdown -->
+	
+	<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert alert-warning") %>
+		<% end %>
+		
+	<div class="main">
+	   <div class="container tim-container" style="max-width:800px; padding-top:100px">
+	     <h1>TULE BO NEKI NAPISANO XD</h1>
+	     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet iaculis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum volutpat non mi non porttitor. Cras efficitur rhoncus quam. Phasellus porta sagittis felis, non tempus massa tempor eu. Nunc dui risus, pharetra eu venenatis id, dapibus vitae elit. Nunc sed faucibus massa, quis volutpat purus. Duis rutrum ornare consectetur. Nullam eu dui neque. Proin at odio elit. Nunc pulvinar quam sed sagittis porttitor. Suspendisse tempor turpis a quam gravida, ac bibendum turpis accumsan. Duis mattis, nisi vel laoreet suscipit, velit tellus sodales lorem, id accumsan quam ex malesuada ipsum. Aenean et ante nibh. Proin sit amet aliquam nunc, sed tincidunt sem. Aenean tincidunt tellus at magna finibus, nec sodales lacus convallis.</p>
+	     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet iaculis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum volutpat non mi non porttitor. Cras efficitur rhoncus quam. Phasellus porta sagittis felis, non tempus massa tempor eu. Nunc dui risus, pharetra eu venenatis id, dapibus vitae elit. Nunc sed faucibus massa, quis volutpat purus. Duis rutrum ornare consectetur. Nullam eu dui neque. Proin at odio elit. Nunc pulvinar quam sed sagittis porttitor. Suspendisse tempor turpis a quam gravida, ac bibendum turpis accumsan. Duis mattis, nisi vel laoreet suscipit, velit tellus sodales lorem, id accumsan quam ex malesuada ipsum. Aenean et ante nibh. Proin sit amet aliquam nunc, sed tincidunt sem. Aenean tincidunt tellus at magna finibus, nec sodales lacus convallis.</p>
+	     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet iaculis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum volutpat non mi non porttitor. Cras efficitur rhoncus quam. Phasellus porta sagittis felis, non tempus massa tempor eu. Nunc dui risus, pharetra eu venenatis id, dapibus vitae elit. Nunc sed faucibus massa, quis volutpat purus. Duis rutrum ornare consectetur. Nullam eu dui neque. Proin at odio elit. Nunc pulvinar quam sed sagittis porttitor. Suspendisse tempor turpis a quam gravida, ac bibendum turpis accumsan. Duis mattis, nisi vel laoreet suscipit, velit tellus sodales lorem, id accumsan quam ex malesuada ipsum. Aenean et ante nibh. Proin sit amet aliquam nunc, sed tincidunt sem. Aenean tincidunt tellus at magna finibus, nec sodales lacus convallis.</p>
+	     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque aliquet iaculis facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum volutpat non mi non porttitor. Cras efficitur rhoncus quam. Phasellus porta sagittis felis, non tempus massa tempor eu. Nunc dui risus, pharetra eu venenatis id, dapibus vitae elit. Nunc sed faucibus massa, quis volutpat purus. Duis rutrum ornare consectetur. Nullam eu dui neque. Proin at odio elit. Nunc pulvinar quam sed sagittis porttitor. Suspendisse tempor turpis a quam gravida, ac bibendum turpis accumsan. Duis mattis, nisi vel laoreet suscipit, velit tellus sodales lorem, id accumsan quam ex malesuada ipsum. Aenean et ante nibh. Proin sit amet aliquam nunc, sed tincidunt sem. Aenean tincidunt tellus at magna finibus, nec sodales lacus convallis.</p>
+	   </div>
+	   <div class="space"></div>
+	<!-- end container -->
+	</div>
+	<!-- end main -->
+
