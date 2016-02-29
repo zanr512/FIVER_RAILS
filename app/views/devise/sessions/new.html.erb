@@ -1,38 +1,33 @@
+ <% flash.each do |name, msg| %>
+				<%= content_tag(:div, msg, class: "alert alert-success") %>
+			<% end %>
+			
+
+
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-<body class="modal-open">
-  <div class="wrapper">
-    <div class="modal modal-small fade in" id="loginModal" tabindex="-1" role="dialog" aria-hidden="false" style="display: block; padding-right: 17px;">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title text-center">Login With</h4>
-          </div>
-          <div class="modal-body">
-                <div class="social-area">
-                    <a href="" class="btn btn-round btn-fill btn-social btn-twitter">
-                       <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="" class="btn btn-round btn-fill btn-social btn-facebook">
-                       <i class="fa fa-facebook-square"></i>
-                </div>
-                <span class="divider"> or </span>
-    
-                <div class="form-group">
-    	        	<%= f.email_field :email, class: "form-control", placeholder: "Email", autofocus: true %>
-            	</div>
-            	 <div class="form-group">
-    	        	<%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Password" %>
-            	</div>
-            	<%= f.submit "Sign In", class: "btn btn-info btn-fill btn-block" %>
-          </div>
-          <div class="modal-footer">
-                <span class="text-muted">Looking to <%= link_to "Sign In", new_registration_path(resource_name), class: "text-muted" %> ?</span>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="form-group">
+  	<%= f.label :email %>
+  	<%= f.email_field :email, autofocus: true, class: "form-control", required: false %>
   </div>
-</body>
+
+  <div class="form-group">
+  	<%= f.label :password %>
+  	<%= f.password_field :password, class: "form-control", required: false %>
+  </div>
+
+  <div class="checkbox">
+  	<label>
+  	<%= f.check_box :remember_me, required: false, as: :boolean if devise_mapping.rememberable? %> Remember Me
+		</label>
+  </div>
+
+  <div class="form-group">
+  	<%= f.submit "Sign In", class: "btn btn-primary" %>
+  </div>
+
 <% end %>
+
+
