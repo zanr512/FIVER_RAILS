@@ -83,9 +83,11 @@
     	       <br>
     	   </div>
     	     <div class="col-md-3 col-md-offset-1">
+        	        <% if @link.user != current_user %>
         	       <div>
         	           <button class="btn  btn-md btn-fill btn-info" >Order Now (<%= @link.price %>€)</button>
         	       </div>
+        	      
         	       <div class="row">
                     <%= link_to like_link_path(@link), method: :put, class: "btn  btn-sm  btn-info" do %>
                       <span class="glyphicon glyphicon-chevron-up"></span>
@@ -96,6 +98,7 @@
                       Downvote
                     <% end %>
                  </div>
+                 <% end %>
                  <% if @link.user == current_user %>
                  <div class="row">
                    <%= link_to 'Edit', edit_link_path(@link), class: "btn  btn-sm btn-fill btn-info" %>
