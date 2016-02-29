@@ -75,6 +75,15 @@
     	       </div>
     	       <br>
     	       <br>
+    	       
+    	       <div>
+    	       	<% if @link.image.file? %>
+    	         <%= image_tag @link.image.url(:medium) %>
+    	        <% else %>
+
+				<% end %>
+    	       </div>
+    	       
     	       <div>
     	         <%= @link.description %>
     	       </div>

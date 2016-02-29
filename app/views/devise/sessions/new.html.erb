@@ -4,10 +4,16 @@
 			
 
 
-
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
+<body class="ozadje">
+<div class="center">
+    <div class="modal modal-small fade in" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true" style="display: block; padding-right: 17px;">
+    <div class="modal-dialog">
+          <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title text-center">Login with</h4>
+            </div>
+            <div class="modal-body">
   <div class="form-group">
   	<%= f.label :email %>
   	<%= f.email_field :email, autofocus: true, class: "form-control", required: false %>
@@ -25,9 +31,18 @@
   </div>
 
   <div class="form-group">
-  	<%= f.submit "Sign In", class: "btn btn-primary" %>
+  	<%= f.submit "Sign In", class: "btn btn-info btn-fill btn-block" %>
   </div>
-
+  
+  <div class="modal-footer">
+              <span class="text-muted">Looking to <%= link_to "Sign up", new_registration_path(resource_name) %>?</span>
+              
+        </div>
+  
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
 <% end %>
-
-
+</body>

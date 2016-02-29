@@ -3,3 +3,16 @@
  *= require gsdk/get-shit-done
  *= require gsdk/demo
  */
+ 
+ .ozadje
+ {
+  background-image:url("../assets/ozadje.jpg");
+  background-repeat:no-repeat;
+  background-position:center center;
+  background-size:cover;
+  background-attachment: fixed;
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+ }
+
