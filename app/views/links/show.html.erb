@@ -83,19 +83,19 @@
     	       <br>
     	   </div>
     	     <div class="col-md-3 col-md-offset-1">
-        	        <% if @link.user != current_user %>
+        	        
         	       <div class="row">
         	       	<% if @link.image.file? %>
         	       		<%= image_tag @link.image.url(:medium) %>    	         
     	        	<% else %>
-						<br><br><br><br<br><br><br><br
+						<br><br><br><br><br><br><br>
 					<% end %>
-
+					<% if @link.user != current_user %>
         	       	<br><br><br><br>
         	       	Positive feedback: <%= @link.get_upvotes.size %><br>
         	       	Negative feedback: <%= @link.get_downvotes.size %><br>
         	       	<br>
-                    <%= link_to like_link_path(@link),  method: :put, class: "btn  btn-sm  btn-info" do %>
+                    <%= link_to like_link_path(@link), method: :put, class: "btn  btn-sm  btn-info" do %>
                       <span class="glyphicon glyphicon-chevron-up"></span>
                       Upvote
                     <% end %>
@@ -129,9 +129,10 @@
     <source src=" http://villagegeek.com/wavfiles/heres_looking.mp3" type="audio/mp3">
 </audio>
 <script>
+
     $('#playsound').click(function (e) {
     $('#sound_effect')[0].currentTime = 0;
     $('#sound_effect')[0].play();
-    return false;
+    return true;
 });
 </script>

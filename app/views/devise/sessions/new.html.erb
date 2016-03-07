@@ -34,6 +34,18 @@
   	<%= f.submit "Sign In", class: "btn btn-info btn-fill btn-block" %>
   </div>
   
+            	<h3 align="center">OR</h3>
+          	<button class="btn btn-social btn-simple btn-twitter">
+                                <i class="fa fa-twitter"></i> 
+                                <%= link_to 'Sign In with Twitter', user_omniauth_authorize_path(:twitter) %>
+                            </button>
+                            
+                            
+            <button class="btn btn-social btn-simple btn-facebook">
+                                <i class="fa fa-facebook-square"></i>
+                                <%= link_to 'Sign In with Facebook', user_omniauth_authorize_path(:facebook) %>
+                            </button>
+  
   <div class="modal-footer">
               <span class="text-muted">Looking to <%= link_to "Sign up", new_registration_path(resource_name) %>?</span>
               
