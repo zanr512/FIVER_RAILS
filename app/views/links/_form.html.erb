@@ -1,40 +1,133 @@
-<%= form_for @link, html: {multipart: true} do |f| %>
-  <% if @link.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
 
-      <ul>
-      <% @link.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<% content_for :features, "navbar-transparent" %>
+	<div id="navbar-full">
+	   <div id="navbar">
+	   <!--
+	       navbar-default can be changed with navbar-ct-blue navbar-ct-azzure navbar-ct-red navbar-ct-green navbar-ct-orange
+	       -->
+	       <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
+	         <% flash.each do |name, msg| %>
+				<%= content_tag(:div, msg, class: "alert alert-success") %>
+			<% end %>
+	
+	         <div class="container">
+	           <!-- Brand and toggle get grouped for better mobile display -->
+	           <div class="navbar-header">
+	             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	               <span class="sr-only">Toggle navigation</span>
+	               <span class="icon-bar"></span>
+	               <span class="icon-bar"></span>
+	               <span class="icon-bar"></span>
+	             </button>
+	             <a class="navbar-brand" href="#">GET SHIT DONE</a>
+	           </div>
+	
+	           <!-- Collect the nav links, forms, and other content for toggling -->
+	           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	             <ul class="nav navbar-nav">
+	               <li><%= link_to 'HOME', welcome_index_path %></li></li>
+	               <li class="active"><%= link_to 'JOBS', links_path %></li>
+	               <% if user_signed_in? %>
+	               <li><%= link_to 'SUBMIT JOB', new_link_path %></li>
+	               <% end %>
+	             </ul>
+	            
+	             <ul class="nav navbar-nav navbar-right">
+	                  <% if !user_signed_in? %>
+	                   <li><%= link_to 'Register', new_user_registration_path %></li>
+	                   <li><%= link_to 'Sign in', new_user_session_path %></li>
+	                  <% else %>
+	                  <li class="dropdown">
+	                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <%= current_user.email %> <b class="caret"></b></a>
+	                     <ul class="dropdown-menu">
+	                       <li><%= link_to 'Account', edit_user_registration_path %></li>
+	                       <li class="divider"></li>
+	                       <li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
+	                     </ul>
+	                     <% end %>
+	               </li>
+	              </ul>
+	              
+	
+	           </div><!-- /.navbar-collapse -->
+	         </div><!-- /.container-fluid -->
+	       </nav>
+	    <div class="blurred-container">
+	           <div class="img-src" style="background-image: url('<%= asset_path("gsdk/bg.jpg") %>')"></div>
+	       </div>
+	   </div><!--  end navbar -->
+	
+	</div> <!-- end menu-dropdown -->
+
+	<div class="main">
+	   <div class="container tim-container" style="max-width:800px; padding-top:100px">
+          <%= form_for @link, html: {multipart: true} do |f| %>
+            <% if @link.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being saved:</h2>
+          
+                <ul>
+                <% @link.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+            <div class="field">
+              <%= f.label :image %><br>
+              <%= f.file_field :image %>
+            </div>
+            <div class="field">
+              <%= f.label :title %><br>
+              <%= f.text_field :title, class: "form-control" %>
+            </div>
+              <div class="field">
+                <%= f.label :title %><br>
+                <%= f.text_field :title, class: "form-control" %>
+              </div>
+              <div class="field">
+                <%= f.label :description %><br>
+                <%= f.text_area :description, class: "form-control" %>
+              </div>
+              <div class="field">
+                <%= f.label :price %><br>
+                <%= f.number_field :price, class: "form-control" %>
+              </div>
+              <div class="actions">
+                <%= f.submit class: "btn btn-info btn-fill pull-right" %>
+              </div>
+            <% end %>
+            <%= link_to 'Show', @link %> |
+						<%= link_to 'Back', links_path %>
+		    </div>
+		    
+	   </div>
+	   <div class="space"></div>
+	<!-- end container -->
+	</div>
+	<!-- end main -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
+  
 
- <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
+ 
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :price %><br>
-    <%= f.number_field :price %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+

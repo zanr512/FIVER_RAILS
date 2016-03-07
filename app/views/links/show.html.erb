@@ -19,7 +19,7 @@
 	               <span class="icon-bar"></span>
 	               <span class="icon-bar"></span>
 	             </button>
-	             <a class="navbar-brand" href="#">FLM</a>
+	             <a class="navbar-brand" href="#">GET SHIT DONE</a>
 	           </div>
 	
 	           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -77,35 +77,33 @@
     	       <br>
     	       
     	       <div>
-    	       	<% if @link.image.file? %>
-    	         <%= image_tag @link.image.url(:medium) %>
-    	        <% else %>
-
-				<% end %>
-    	       </div>
-    	       
-    	       <div>
     	         <%= @link.description %>
     	       </div>
     	       <br>
-    	       <%= @link.score %>
     	       <br>
     	   </div>
     	     <div class="col-md-3 col-md-offset-1">
         	        <% if @link.user != current_user %>
-        	       <div>
-        	           <button class="btn  btn-md btn-fill btn-info" >Order Now (<%= @link.price %>€)</button>
-        	       </div>
-        	      
         	       <div class="row">
-                    <%= link_to like_link_path(@link), method: :put, class: "btn  btn-sm  btn-info" do %>
+        	       	<% if @link.image.file? %>
+        	       		<%= image_tag @link.image.url(:medium) %>    	         
+    	        	<% else %>
+						<br><br><br><br<br><br><br><br
+					<% end %>
+
+        	       	<br><br><br><br>
+        	       	Positive feedback: <%= @link.get_upvotes.size %><br>
+        	       	Negative feedback: <%= @link.get_downvotes.size %><br>
+        	       	<br>
+                    <%= link_to like_link_path(@link),  method: :put, class: "btn  btn-sm  btn-info" do %>
                       <span class="glyphicon glyphicon-chevron-up"></span>
                       Upvote
                     <% end %>
                     <%= link_to dislike_link_path(@link), method: :put, class: "btn  btn-sm btn-fill btn-info" do %>
-                      <span class="glyphicon glyphicon-chevron-down">
+                      <span  class="glyphicon glyphicon-chevron-down">
                       Downvote
                     <% end %>
+                    <a href="javascript:void(0)" id="playsound">Press here for funny sound.</a>
                  </div>
                  <% end %>
                  <% if @link.user == current_user %>
@@ -113,7 +111,9 @@
                    <%= link_to 'Edit', edit_link_path(@link), class: "btn  btn-sm btn-fill btn-info" %>
                    <%= link_to 'Destroy', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn  btn-sm btn-fill btn-info" %>
                  </div>
+                 
                  <% end %>
+                 
              </div>
   	       
   		    </div>
@@ -124,3 +124,14 @@
 	</div>
 	<!-- end main -->
 
+
+<audio id="sound_effect" class="audio_player" preload="auto">
+    <source src=" http://villagegeek.com/wavfiles/heres_looking.mp3" type="audio/mp3">
+</audio>
+<script>
+    $('#playsound').click(function (e) {
+    $('#sound_effect')[0].currentTime = 0;
+    $('#sound_effect')[0].play();
+    return false;
+});
+</script>

@@ -19,7 +19,7 @@
 	               <span class="icon-bar"></span>
 	               <span class="icon-bar"></span>
 	             </button>
-	             <a class="navbar-brand" href="#">Get Shit Done</a>
+	             <a class="navbar-brand" href="#">GET SHIT DONE</a>
 	           </div>
 	
 	           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -69,8 +69,12 @@
 	           <td><h2><%= link_to link.title, link %></h2></td>
 	         </tr>
 	         <tr>
-	           <td>Submitted <%= time_ago_in_words(link.created_at) %> ago by <%= link.user.email %></td>
+	           <td>Submitted <%= time_ago_in_words(link.created_at) %> ago.</td>
 	         </tr>
+	         <tr>
+	           <td><h5>Score: <%= link.score %></h5></td>
+	         </tr>
+	         
 	         <tr>
 	           <td><%= truncate(link.description, :length => 200) %></td>
 	         </tr>
