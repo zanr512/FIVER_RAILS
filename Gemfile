@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.5', '>= 3.5.6'
 gem 'gsdk', '>= 1.0.0.0'
 gem 'acts_as_votable', '~> 0.10.0'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
