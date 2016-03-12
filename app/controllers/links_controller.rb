@@ -31,6 +31,7 @@ class LinksController < ApplicationController
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, notice: 'Job was successfully created.' }
+        Log.create(:user => current_user.email, :action => "Created job")
         format.json { render :show, status: :created, location: @link }
       else
         format.html { render :new }
@@ -45,6 +46,7 @@ class LinksController < ApplicationController
     respond_to do |format|
       if @link.update(link_params)
         format.html { redirect_to @link, notice: 'Job was successfully updated.' }
+        Log.create(:user => current_user.email, :action => "Updated job")
         format.json { render :show, status: :ok, location: @link }
       else
         format.html { render :edit }
@@ -59,6 +61,7 @@ class LinksController < ApplicationController
     @link.destroy
     respond_to do |format|
       format.html { redirect_to links_url, notice: 'Job was successfully destroyed.' }
+      Log.create(:user => current_user.email, :action => "Deleted job")
       format.json { head :no_content }
     end
   end
