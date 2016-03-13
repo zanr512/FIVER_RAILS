@@ -211,7 +211,7 @@ DEPENDENCIES
   jquery-rails
   omniauth-facebook
   omniauth-twitter
-  paperclip (~> 4.3)
+  paperclip
   pg
   rails (= 4.2.4)
   rails_12factor
