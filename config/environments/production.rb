@@ -4,7 +4,7 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.cache_classes = true
   config.serve_static_assets = true
-  config.assets.compile = true
+  config.assets.compile = false
   config.serve_static_files = true
 
   # Eager load code on boot. This eager loads most of Rails and
@@ -25,7 +25,7 @@ Rails.application.configure do
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.
-  config.serve_static_files = ENV['RAILS_SERVE_STATIC_FILES'].present?
+  config.serve_static_files = false
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
@@ -48,7 +48,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = :info
 
   # Prepend all log lines with the following tags.
   # config.log_tags = [ :subdomain, :uuid ]
