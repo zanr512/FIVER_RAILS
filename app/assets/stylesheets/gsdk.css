@@ -16,3 +16,10 @@
   min-height: 100%;
  }
 
+.slika
+{
+   background-image:url("../assets/ozadje.jpg");
+   background-position:center center;
+   background-size:cover;
+   background-attachment: fixed;
+}
