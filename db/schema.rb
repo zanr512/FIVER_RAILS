@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20160312123035) do
   create_table "logs", force: :cascade do |t|
     t.string   "user"
     t.string   "action"
-    t.datetime "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
