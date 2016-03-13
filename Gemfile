@@ -26,7 +26,7 @@ gem 'gsdk', '>= 1.0.0.0'
 gem 'acts_as_votable', '~> 0.10.0'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
-gem "paperclip"
+gem 'paperclip'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
