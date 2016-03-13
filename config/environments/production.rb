@@ -5,8 +5,6 @@ Rails.application.configure do
   config.cache_classes = true
   config.serve_static_assets = true
   config.assets.compile = true
-  
-  config.assets.precompile += %w[gsdk.css scaffolds.scss]
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
