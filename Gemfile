@@ -28,8 +28,6 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'paperclip'
 #gem 'rails_serve_static_assets'
-gem 'rails_serve_static_assets'
-gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
