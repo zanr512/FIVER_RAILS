@@ -28,7 +28,6 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'paperclip'
 #gem 'rails_serve_static_assets'
-gem 'anjlab-bootstrap-rails', '~> 3.0.0.3', :require => 'bootstrap-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
