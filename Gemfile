@@ -29,7 +29,6 @@ gem 'omniauth-facebook'
 gem 'paperclip'
 #gem 'rails_serve_static_assets'
 gem 'rails_serve_static_assets'
-gem 'rails_stdout_logging'
 gem 'rails_12factor'
 
 # Use ActiveModel has_secure_password
