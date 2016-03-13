@@ -3,9 +3,10 @@ Rails.application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-  config.serve_static_assets = false
-  config.assets.compile = false
-  config.serve_static_files = false
+  config.serve_static_assets = true
+  config.assets.compile = true
+  config.serve_static_files = true
+  config.assets.precompile += %w( *.js *.css *.eot *.woff *.ttf *.svg )
 
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
