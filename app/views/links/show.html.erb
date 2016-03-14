@@ -90,6 +90,7 @@
     	        	<% else %>
 						<br><br><br><br><br><br><br>
 					<% end %>
+					<h3>Price: <%= @link.price %>€</h3>
 					<% if @link.user != current_user %>
         	       	<br><br><br><br>
         	       	Positive feedback: <%= @link.get_upvotes.size %><br>
